@@ -1,0 +1,6 @@
+2017-10-31 16:02:17.243 INFO  (main) [   ] o.e.j.s.Server jetty-9.3.20.v20170531
+2017-10-31 16:02:18.352 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter  ___      _       Welcome to Apache Solr™ version 7.1.0
+2017-10-31 16:02:18.353 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter / __| ___| |_ _   Starting in standalone mode on port 8983
+2017-10-31 16:02:18.353 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter \__ \/ _ \ | '_|  Install dir: C:\Users\anshuamanbora\Documents\Coding\AdaptiveWeb\Assignment3\Content-Based-Recommender\solr-7.1.0, Default config dir: C:\Users\anshuamanbora\Documents\Coding\AdaptiveWeb\Assignment3\Content-Based-Recommender\solr-7.1.0\server\solr\configsets\_default\conf
+2017-10-31 16:02:18.384 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter |___/\___/_|_|    Start time: 2017-10-31T16:02:18.355Z
+2017-10-31 16:02:18.385 INFO  (main) [   ] o.a.s.u.StartupLoggingUtils Property solr.log.muteconsole given. Muting ConsoleAppender named CONSOLE

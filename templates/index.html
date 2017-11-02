@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Content Based Recommender App</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/style.css">
+
+
+</head>
+<body>
+<br/>
+
+<div class="row">
+    <div class="col-lg-9">
+
+    </div>
+
+    <div class="col-lg-2">
+        <h4>Adaptive Web Assignment 3</h4>
+        <h6>Anshuman Bora | 1211247437</h6>
+    </div>
+
+
+</div>
+<div class="container">
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Methods Applied</button>
+    <div id="demo" class="collapse">
+        <div><br/>
+            <h5>Backend</h5>
+            <p>Crawling: Used BeautifulSoup, a python library, to crawl the Java wiki pages. Each individual document consisted of a wiki subtopic. Recorded the header, links , text content for indexing purposes and also the respective html for display purposes.
+            </p>
+            <p>Stemming: Stemming reduces the words into their respective root forms. Incorporated stemming to increase the chances of matching different forms of a word.
+            </p>
+            <p>Removing Stop words: Stop words are common words which could be removed without compromising the quality of the text content.
+            Used the ‘nltk’ library (natural language toolkit) for stemming and removing stop word.
+            <p>After the wiki pages were thoroughly crawled, the documents were passed to Solr for indexing. Solr is built on Apache Lucene. I chose to go with Solr because it uses the BM25 (Best matching 25) ranking function.
+                It is different from others because it is  derived from probabilistic information retrieval.   BM25 is a bag-of-words retrieval
+                function that ranks a set of documents based on the query terms appearing in each document, regardless of the inter-relationship between the query terms within a document
+                (e.g., their relative proximity). It is not a single function, but actually a whole family of scoring functions, with slightly different components and parameters.<a href = 'https://en.wikipedia.org/wiki/Okapi_BM25'>Wikipedia</a>
+            </p>
+        </div>
+        <div>
+            <br/>
+            <h5>User-Interface</h5>
+            The user interface is designed in such a way that the users can clearly navigate around. The recommended documents for each post could be accessed by clicking on a button right below the post. A collapsible and scrollable drop down interface appears which contains the top ten relevant documents for the posts. After a user has gone through the documents, he/she can hide away the documents and move on to the next question.
+        </div>
+
+    </div>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<div class="card 1">
+
+    <div class="card-block">
+        <h4 class="card-title">Post 1</h4>
+        <p class="card-text">"I was presented with this question in an end of module open
+            book exam today and found myself lost. i was reading Head first Javaand both definitions
+            seemed to be exactly the same. i was just wondering what the MAIN difference was for my
+            own piece of mind. i know there are a number of similar questions to this but, none i have
+            seen which provide a definitive answer.Thanks, Darren"</p>
+        <button onclick="getRecommendation(1)" class="btn btn-warning">Get Recommendation</button>
+        <div  id="1" class="recommendation">
+            <div class="panel-group" id="accordion">
+
+            </div>
+        </div>
+    </div>
+</div>
+<div  class="card">
+
+    <div class="card-block">
+        <h4 class="card-title">Post 2</h4>
+        <p class="card-text">Inheritance is when a 'class' derives from an existing 'class'.So if you
+            have a Person class, then you have a Student class that extends Person, Student inherits all
+            the things that Person has.There are some details around the access modifiers you put on the
+            fields/methods in Person, but that's the basic idea.For example, if you have a private field on
+            Person, Student won't see it because its private, and private fields are not visible to subclasses.
+            Polymorphism deals with how the program decides which methods it should use, depending on what type
+            of thing it has.If you have a Person, which has a read method, and you have a Student which extends
+            Person, which has its own implementation of read, which method gets called is determined for you by
+            the runtime, depending if you have a Person or a Student.It gets a bit tricky, but if you do something
+            likePerson p = new Student();p.read();the read method on Student gets called.Thats the polymorphism
+            in action.You can do that assignment because a Student is a Person, but the runtime is smart enough
+            to know that the actual type of p is Student.Note that details differ among languages.You can do
+            inheritance in javascript for example, but its completely different than the way it works in Java.</p>
+        <button onclick="getRecommendation(2)" class="btn btn-warning">Get Recommendation</button>
+        <div  id="2" class="recommendation"></div>
+    </div>
+</div>
+<div class="card">
+
+    <div class="card-block">
+        <h4 class="card-title">Post 3</h4>
+        <p class="card-text">"Polymorphism: The ability to treat objects of different types in a similar manner.
+            Example: Giraffe and Crocodile are both Animals, and animals can Move.If you have an instance of an
+            Animal then you can call Move without knowing or caring what type of animal it is.Inheritance: This
+            is one way of achieving both Polymorphism and code reuse at the same time.Other forms of polymorphism:
+            There are other way of achieving polymorphism, such as interfaces, which provide only polymorphism but
+            no code reuse (sometimes the code is quite different, such as Move for a Snake would be quite different
+            from Move for a Dog, in which case an Interface would be the better polymorphic choice in this case.In
+            other dynamic languages polymorphism can be achieved with Duck Typing, which is the classes don't even
+            need to share the same base class or interface, they just need a method with the same name.Or even more
+            dynamic like Javascript, you don't even need classes at all, just an object with the same method name
+            can be used polymorphically..</p>
+        <button onclick="getRecommendation(3)" class="btn btn-warning">Get Recommendation</button>
+        <div  id="3" class="recommendation"></div>
+    </div>
+</div>
+<div  class="card">
+
+    <div class="card-block">
+        <h4 class="card-title">Post 4</h4>
+        <p class="card-text">"I found out that the above piece of code is perfectly legal in Java.
+            I have the following questions. ThanksAdded one more question regarding Abstract method classes.", </p>
+        <button onclick="getRecommendation(4)" class="btn btn-warning">Get Recommendation</button>
+        <div  id="4" class="recommendation"></div>
+    </div>
+</div>
+<div class="card">
+
+    <div class="card-block">
+        <h4 class="card-title">Post 5</h4>
+        <p class="card-text">"In java it's a bit difficult to implement a deep object copy function.
+            What steps you take to ensure the original object and the cloned one share no reference? </p>
+        <button onclick="getRecommendation(5)" class="btn btn-warning">Get Recommendation</button>
+        <div  id="5" class="recommendation"></div>
+    </div>
+</div>
+<div  class="card">
+
+    <div class="card-block">
+        <h4 class="card-title">Post 6</h4>
+        <p class="card-text">You can make a deep copy serialization without creating some files. Copy: Restore:</p>
+        <button onclick="getRecommendation(6)" class="btn btn-warning">Get Recommendation</button>
+        <div  id="6" class="recommendation"></div>
+    </div>
+</div>
+<div class="card">
+
+    <div class="card-block">
+        <h4 class="card-title">Post 7</h4>
+        <p class="card-text">Java has the ability to create classes at runtime. These classes are known as Synthetic
+            Classes or Dynamic Proxies. See for more information. Other open-source libraries, such as and also allow
+            you to generate synthetic classes, and are more powerful than the libraries provided with the JRE. Synthetic
+            classes are used by AOP (Aspect Oriented Programming) libraries such as Spring AOP and AspectJ, as well as
+            ORM libraries such as Hibernate.</p>
+        <button onclick="getRecommendation(7)" class="btn btn-warning">Get Recommendation</button>
+        <div  id="7" class="recommendation"></div>
+    </div>
+</div>
+<div  class="card">
+
+    <div class="card-block">
+        <h4 class="card-title">Post 8</h4>
+        <p class="card-text">"A safe way is to serialize the object, then deserialize.This ensures everything is a
+            brand new reference.about how to do this efficiently. Caveats: It's possible for classes to override
+            serialization such that new instances are created, e.g. for singletons.Also this of course doesn't work
+            if your classes aren't Serializable."</p>
+        <button onclick="getRecommendation(8)" class="btn btn-warning">Get Recommendation</button>
+        <div  id="8" class="recommendation"></div>
+    </div>
+</div>
+<div class="card">
+
+    <div class="card-block">
+        <h4 class="card-title">Post 9</h4>
+        <p class="card-text">"comment this code."</p>
+        <button onclick="getRecommendation(9)" class="btn btn-warning">Get Recommendation</button>
+        <div  id="9" class="recommendation"></div>
+    </div>
+</div>
+<div  class="card">
+
+    <div class="card-block">
+        <h4 class="card-title">Post 10</h4>
+        <p class="card-text">     in a class i can have as many constructors as i want with different argument types. i made all the constructors as private it didn't give any error because my implicit default constructor was public but when i declared my implicit default constructor as private then its showing an error while extending the class.  why?       this works fine         this can not be inherited      .</p>
+        <button onclick="getRecommendation(10)" class="btn btn-warning">Get Recommendation</button>
+        <div  id="10" class="recommendation"></div>
+    </div>
+</div>
+
+
+<!-- jQuery first, then Tether, then Bootstrap JS. -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script src="../static/script.js"></script> 
+</body>
+</html>
